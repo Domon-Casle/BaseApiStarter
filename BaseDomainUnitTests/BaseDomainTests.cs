@@ -223,7 +223,7 @@ namespace BaseDomainUnitTests
                     It.IsAny<TestAuditTriggersEntity>(),
                     It.IsAny<TableCache>()))
                 .Returns(variances);
-            mockAuditDomain.Setup(x => x.AuditChanges(It.IsAny<TestAuditTriggersEntity>(), variances, It.IsAny<TableCache>())).Returns(Task.CompletedTask);
+            mockAuditDomain.Setup(x => x.AuditChanges(It.IsAny<TestAuditTriggersEntity>(), userId, variances, It.IsAny<TableCache>())).Returns(Task.CompletedTask);
 
             // Act
             await domain.Object.Update(entity);
