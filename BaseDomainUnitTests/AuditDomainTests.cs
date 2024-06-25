@@ -1,4 +1,6 @@
-﻿using BaseDomain.Audit;
+﻿using BaseDomain;
+using BaseDomain.Audit;
+using BaseDomainUnitTests.TestDomains;
 using CoreUtilities.Logger;
 using Moq;
 
@@ -17,13 +19,22 @@ namespace BaseDomainUnitTests
         }
 
         [Fact]
-        public async Task AuditCreate_Success()
+        public void AuditCreate_Success()
         {
             // Arrange
+            var domain = GetDomain();
+            var entity = new TestEntity();
+            var difEntity = new TestEntity()
+            {
+                Tester = "Old value"
+            };
+            var tableCache = new TableCache(typeof(TestEntity));
 
             // Act
+            var variance = domain.Object.AreThereChanges(difEntity, entity, tableCache);
 
             // Assert
+            Assert.True(variance.Any());
         }
     }
 }

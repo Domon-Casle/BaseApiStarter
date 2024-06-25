@@ -6,14 +6,14 @@ namespace BaseDomain
 {
     public class TableCache
     {
-        internal FieldInfo[] Fields { get; private set; } = [];
+        internal PropertyInfo[] Fields { get; private set; } = [];
         internal string Name { get; private set; } = string.Empty;
         internal bool LogRead { get; private set; } = false;
         internal bool LogCreate { get; private set; } = false;
         internal bool LogUpdate { get; private set; } = false;
         internal bool LogDelete { get; private set; } = false;
 
-        internal TableCache(Type entityType)
+        public TableCache(Type entityType)
         {
             Require.NotNull(entityType, nameof(entityType));
             Name = entityType.Name;
@@ -23,7 +23,7 @@ namespace BaseDomain
 
         private void PopulateFields(Type entityType)
         {
-            Fields = entityType.GetFields();
+            Fields = entityType.GetProperties();
         }
 
         private void SetLogEventsFlags(Type entityType)
