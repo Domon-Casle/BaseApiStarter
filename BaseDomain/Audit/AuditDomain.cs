@@ -1,4 +1,5 @@
 ﻿using CoreUtilities;
+using CoreUtilities.Logger;
 
 namespace BaseDomain.Audit
 {

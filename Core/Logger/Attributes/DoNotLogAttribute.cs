@@ -1,4 +1,4 @@
-﻿namespace CoreUtilities.Attributes
+﻿namespace CoreUtilities.Logger.Attributes
 {
     public class DoNotLogAttribute : Attribute
     {

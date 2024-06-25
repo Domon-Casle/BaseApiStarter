@@ -1,6 +1,6 @@
 ﻿using BaseDomain;
 using BaseDomain.Audit;
-using CoreUtilities;
+using CoreUtilities.Logger;
 
 namespace BaseDomainUnitTests.TestDomains
 {

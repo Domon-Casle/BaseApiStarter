@@ -1,3 +1,6 @@
+using CoreUtilities.Logger.Attributes;
+using System.Text.Json.Serialization;
+
 namespace BaseApi
 {
     public class WeatherForecast
@@ -9,5 +12,11 @@ namespace BaseApi
         public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 
         public string? Summary { get; set; }
+
+        [JsonIgnore]
+        public string JsonIgnored { get; set; } = "should be ignred";
+
+        [DoNotLog]
+        public string LoggerIgnored { get; set; } = "logger should ignore";
     }
 }

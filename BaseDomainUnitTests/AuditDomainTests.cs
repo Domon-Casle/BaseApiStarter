@@ -1,5 +1,5 @@
 ﻿using BaseDomain.Audit;
-using CoreUtilities;
+using CoreUtilities.Logger;
 using Moq;
 
 namespace BaseDomainUnitTests
