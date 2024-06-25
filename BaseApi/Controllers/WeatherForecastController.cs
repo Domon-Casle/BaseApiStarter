@@ -1,4 +1,6 @@
+using CoreUtilities.Logger;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace BaseApi.Controllers
 {
@@ -11,9 +13,9 @@ namespace BaseApi.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly IBaseLogger _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(IBaseLogger logger)
         {
             _logger = logger;
         }
@@ -21,6 +23,13 @@ namespace BaseApi.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+            _logger.LogDebug("test", new WeatherForecast
+            {
+                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(5)),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            });
+
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),

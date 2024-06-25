@@ -1,5 +1,6 @@
 ﻿using BaseDomain.Audit;
 using CoreUtilities;
+using CoreUtilities.Logger;
 using System.Collections.Concurrent;
 
 namespace BaseDomain

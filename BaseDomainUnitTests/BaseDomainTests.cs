@@ -1,8 +1,8 @@
 using BaseDomain;
 using BaseDomain.Audit;
 using BaseDomainUnitTests.TestDomains;
-using CoreUtilities;
 using CoreUtilities.Exceptions;
+using CoreUtilities.Logger;
 using Moq;
 
 namespace BaseDomainUnitTests
