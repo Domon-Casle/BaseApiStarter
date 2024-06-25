@@ -8,7 +8,7 @@ namespace BaseDomain.Audit
         List<Variance> AreThereChanges<TEntity>(TEntity? oldEntity, TEntity newEntity, TableCache tableCache) where TEntity : BaseModel;
         Task AuditRead(Guid entityId, Guid userId, TableCache tableCache);
         Task AuditCreate<TEntity>(TEntity entity, TableCache tableCache) where TEntity : BaseModel;
-        Task AuditChanges<TEntity>(TEntity entity, List<Variance> changes, TableCache tableCache) where TEntity : BaseModel;
+        Task AuditChanges<TEntity>(TEntity entity, Guid userId, List<Variance> changes, TableCache tableCache) where TEntity : BaseModel;
         Task AuditDelete(Guid entityId, Guid userId, TableCache tableCache);
     }
 
@@ -34,7 +34,7 @@ namespace BaseDomain.Audit
             return Task.CompletedTask;
         }
 
-        public Task AuditChanges<TEntity>(TEntity entity, List<Variance> changes, TableCache tableCache) where TEntity : BaseModel
+        public Task AuditChanges<TEntity>(TEntity entity, Guid userId, List<Variance> changes, TableCache tableCache) where TEntity : BaseModel
         {
 #pragma warning disable CS8604 // Possible null reference argument.
             Require.NotNull(entity, nameof(entity));
