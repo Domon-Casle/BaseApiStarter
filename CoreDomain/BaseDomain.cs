@@ -89,7 +89,7 @@ namespace CoreDomain
                 if (TableDetails.LogUpdate)
                 {
                     Logger.LogDebug($"Update of {TableDetails.Name} with id {entity.Id} sent to external Logger");
-                    await _auditDomain.AuditChanges(entity, variances, TableDetails);
+                    await _auditDomain.AuditChanges(entity, User.UserId, variances, TableDetails);
                 }
             }
             else
