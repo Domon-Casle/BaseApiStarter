@@ -16,15 +16,15 @@ namespace CoreUtilities.DI
                     switch (diAttribute.Scope)
                     {
                         case DIScope.Scoped:
-                            serviceCollection.AddScoped(diClass.GetType(), diAttribute.InterfaceType);
+                            serviceCollection.AddScoped(diAttribute.InterfaceType, diClass);
                             break;
 
                         case DIScope.Singleton:
-                            serviceCollection.AddTransient(diClass.GetType(), diAttribute.InterfaceType);
+                            serviceCollection.AddTransient(diAttribute.InterfaceType, diClass);
                             break;
 
                         case DIScope.Transiant:
-                            serviceCollection.AddSingleton(diClass.GetType(), diAttribute.InterfaceType);
+                            serviceCollection.AddSingleton(diAttribute.InterfaceType, diClass);
                             break;
 
                         default:
