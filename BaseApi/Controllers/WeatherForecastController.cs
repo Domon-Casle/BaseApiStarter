@@ -1,6 +1,5 @@
 using CoreUtilities.Logger;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace BaseApi.Controllers
 {

@@ -1,4 +1,4 @@
-﻿namespace BaseDomain
+﻿namespace CoreDomain
 {
     public class BaseModel
     {

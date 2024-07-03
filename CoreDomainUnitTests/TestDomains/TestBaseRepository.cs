@@ -1,6 +1,6 @@
-﻿using BaseDomain;
+﻿using CoreDomain;
 
-namespace BaseDomainUnitTests.TestDomains
+namespace CoreDomainUnitTests.TestDomains
 {
     public interface ITestBaseRepository : IBaseRepository<TestEntity>
     {

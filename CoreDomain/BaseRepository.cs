@@ -1,6 +1,4 @@
-﻿using CoreUtilities;
-
-namespace BaseDomain
+﻿namespace CoreDomain
 {
     public interface IBaseRepository<TEntity> where TEntity : BaseModel
     {

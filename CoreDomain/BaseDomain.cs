@@ -1,9 +1,9 @@
-﻿using BaseDomain.Audit;
+﻿using CoreDomain.Audit;
 using CoreUtilities;
 using CoreUtilities.Logger;
 using System.Collections.Concurrent;
 
-namespace BaseDomain
+namespace CoreDomain
 {
     public interface IBaseDomain<TEntity, TRepo> where TEntity : BaseModel where TRepo : IBaseRepository<TEntity>
     {

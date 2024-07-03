@@ -1,4 +1,4 @@
-﻿namespace BaseDomain.Audit
+﻿namespace CoreDomain.Audit
 {
     public enum AuditActionEnum
     {

@@ -1,7 +1,8 @@
 ﻿using CoreUtilities;
+using CoreUtilities.DI;
 using CoreUtilities.Logger;
 
-namespace BaseDomain.Audit
+namespace CoreDomain.Audit
 {
     public interface IAuditDomain
     {
@@ -12,6 +13,7 @@ namespace BaseDomain.Audit
         Task AuditDelete(Guid entityId, Guid userId, TableCache tableCache);
     }
 
+    [InjectDependency(typeof(IAuditDomain))]
     public class AuditDomain(IBaseLogger logger) : IAuditDomain
     {
         private readonly IBaseLogger _logger = logger;
@@ -53,7 +55,6 @@ namespace BaseDomain.Audit
             return Task.CompletedTask;
         }
 
-        // TODO Unit test
         public List<Variance> AreThereChanges<TEntity>(TEntity? oldEntity, TEntity newEntity, TableCache tableCache) where TEntity : BaseModel
         {
             var variances = new List<Variance>();

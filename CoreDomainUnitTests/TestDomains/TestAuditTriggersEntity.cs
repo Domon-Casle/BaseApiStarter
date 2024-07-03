@@ -1,7 +1,7 @@
-﻿using BaseDomain;
-using BaseDomain.Attributes;
+﻿using CoreDomain;
+using CoreDomain.Attributes;
 
-namespace BaseDomainUnitTests.TestDomains
+namespace CoreDomainUnitTests.TestDomains
 {
     [LogCreate]
     [LogUpdate]

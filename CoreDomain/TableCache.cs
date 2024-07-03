@@ -1,8 +1,8 @@
-﻿using BaseDomain.Attributes;
+﻿using CoreDomain.Attributes;
 using CoreUtilities;
 using System.Reflection;
 
-namespace BaseDomain
+namespace CoreDomain
 {
     public class TableCache
     {

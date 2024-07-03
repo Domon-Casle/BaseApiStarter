@@ -1,11 +1,11 @@
-using BaseDomain;
-using BaseDomain.Audit;
-using BaseDomainUnitTests.TestDomains;
+using CoreDomain;
+using CoreDomain.Audit;
+using CoreDomainUnitTests.TestDomains;
 using CoreUtilities.Exceptions;
 using CoreUtilities.Logger;
 using Moq;
 
-namespace BaseDomainUnitTests
+namespace CoreDomainUnitTests
 {
     public class BaseDomainTests
     {
