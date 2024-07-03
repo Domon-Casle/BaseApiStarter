@@ -4,7 +4,7 @@ namespace CoreUtilities
 {
     public static class Require
     {
-        public static void NotNullOrEmpty(string message, string variableName)
+        public static void NotNullOrEmpty(string? message, string variableName)
         {
             if (string.IsNullOrEmpty(message))
             {
@@ -20,7 +20,7 @@ namespace CoreUtilities
             }
         }
 
-        public static void NotNull(object value, string variableName)
+        public static void NotNull(object? value, string variableName)
         {
             if (value == null)
             {
