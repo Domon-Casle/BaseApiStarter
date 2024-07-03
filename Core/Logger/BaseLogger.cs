@@ -1,4 +1,5 @@
-﻿using CoreUtilities.Logger.Attributes;
+﻿using CoreUtilities.DI;
+using CoreUtilities.Logger.Attributes;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System.Runtime.CompilerServices;
@@ -18,6 +19,7 @@ namespace CoreUtilities.Logger
         void LogCritical(string message, Exception exception, [CallerMemberName] string caller = "", [CallerLineNumber] int lineNumber = 0);
     }
 
+    [InjectDependency(typeof(IBaseLogger))]
     public class BaseLogger(ILogger<BaseLogger> logger) : IBaseLogger
     {
         private readonly ILogger _logger = logger;

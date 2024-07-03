@@ -1,4 +1,6 @@
-using CoreUtilities.Logger;
+using CoreDomain;
+using CoreUtilities.DI;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +11,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IBaseLogger, BaseLogger>();
+var domainAssembly = Assembly.GetAssembly(typeof(BaseModel));
+if (domainAssembly == null)
+{
+    throw new Exception("Could not find domain assembly");
+}
+
+builder.Services.BuildDependencyInjectionFromAttribute(domainAssembly);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

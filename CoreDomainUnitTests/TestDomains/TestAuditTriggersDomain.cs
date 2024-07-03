@@ -1,8 +1,8 @@
-﻿using BaseDomain;
-using BaseDomain.Audit;
+﻿using CoreDomain;
+using CoreDomain.Audit;
 using CoreUtilities.Logger;
 
-namespace BaseDomainUnitTests.TestDomains
+namespace CoreDomainUnitTests.TestDomains
 {
     public interface ITestAuditTriggersDomain : IBaseDomain<TestAuditTriggersEntity, ITestAuditRepository>
     {

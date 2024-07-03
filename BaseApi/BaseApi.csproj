@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CoreDomain\CoreDomain.csproj" />
     <ProjectReference Include="..\Core\CoreUtilities.csproj" />
   </ItemGroup>
 
