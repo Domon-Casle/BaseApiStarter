@@ -6,7 +6,7 @@ namespace CoreUtilities
 {
     public static class CoreUtilityDependencyInjectionSetup
     {
-        public static void CoreUtilityDISetup(IServiceCollection services)
+        public static void DepenedencySetup(IServiceCollection services)
         {
             var myAssembly = Assembly.GetAssembly(typeof(Require));
             if (myAssembly == null)
