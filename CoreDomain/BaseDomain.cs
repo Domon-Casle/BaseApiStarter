@@ -45,7 +45,7 @@ namespace CoreDomain
             if (TableDetails.LogRead)
             {
                 Logger.LogDebug($"Read of {TableDetails.Name} with id {id} sent to external Logger");
-                await _auditDomain.AuditRead(id, User.UserId, TableDetails);
+                await _auditDomain.AuditRead(id, TableDetails);
             }
             return entity;
         }
@@ -89,7 +89,7 @@ namespace CoreDomain
                 if (TableDetails.LogUpdate)
                 {
                     Logger.LogDebug($"Update of {TableDetails.Name} with id {entity.Id} sent to external Logger");
-                    await _auditDomain.AuditChanges(entity, User.UserId, variances, TableDetails);
+                    await _auditDomain.AuditChanges(entity, variances, TableDetails);
                 }
             }
             else
@@ -109,7 +109,7 @@ namespace CoreDomain
             if (TableDetails.LogDelete)
             {
                 Logger.LogDebug($"Delete of {TableDetails.Name} with id {id} sent to external Logger");
-                await _auditDomain.AuditDelete(id, User.UserId, TableDetails);
+                await _auditDomain.AuditDelete(id, TableDetails);
             }
         }
     }
