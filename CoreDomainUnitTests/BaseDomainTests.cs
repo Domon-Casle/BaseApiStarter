@@ -47,7 +47,7 @@ namespace CoreDomainUnitTests
             Guid userId = Guid.NewGuid();
             mockAuditRepository.Setup(r => r.Get(entityId)).ReturnsAsync(expected);
             mockUserPrincipal.Setup(x => x.UserId).Returns(userId);
-            mockAuditDomain.Setup(r => r.AuditRead(entityId, userId, It.IsAny<TableCache>())).Returns(Task.CompletedTask);
+            mockAuditDomain.Setup(r => r.AuditRead(entityId,  It.IsAny<TableCache>())).Returns(Task.CompletedTask);
 
             // Act
             var result = await domain.Object.Get(entityId);
@@ -223,7 +223,7 @@ namespace CoreDomainUnitTests
                     It.IsAny<TestAuditTriggersEntity>(),
                     It.IsAny<TableCache>()))
                 .Returns(variances);
-            mockAuditDomain.Setup(x => x.AuditChanges(It.IsAny<TestAuditTriggersEntity>(), userId, variances, It.IsAny<TableCache>())).Returns(Task.CompletedTask);
+            mockAuditDomain.Setup(x => x.AuditChanges(It.IsAny<TestAuditTriggersEntity>(), variances, It.IsAny<TableCache>())).Returns(Task.CompletedTask);
 
             // Act
             await domain.Object.Update(entity);
@@ -272,7 +272,7 @@ namespace CoreDomainUnitTests
             Guid entityGuid = Guid.NewGuid();
             mockUserPrincipal.Setup(x => x.UserId).Returns(userId);
             mockAuditRepository.Setup(x => x.Delete(entityGuid)).Returns(Task.CompletedTask);
-            mockAuditDomain.Setup(x => x.AuditDelete(entityGuid, userId, It.IsAny<TableCache>())).Returns(Task.CompletedTask);
+            mockAuditDomain.Setup(x => x.AuditDelete(entityGuid, It.IsAny<TableCache>())).Returns(Task.CompletedTask);
 
             // Act
             await domain.Object.Delete(entityGuid);

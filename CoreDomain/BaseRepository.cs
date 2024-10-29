@@ -1,6 +1,6 @@
 ﻿namespace CoreDomain
 {
-    public interface IBaseRepository<TEntity> where TEntity : BaseModel
+    public interface IBaseRepository<TEntity>
     {
         Task<TEntity?> Get(Guid Id);
         Task<Guid> Create(TEntity entity);
@@ -8,24 +8,24 @@
         Task Delete(Guid id);
     }
 
-    public abstract class BaseRepository<TEntity>() : IBaseRepository<TEntity> where TEntity : BaseModel
+    public abstract class BaseRepository<TEntity>() : IBaseRepository<TEntity>
     {
-        public Task<TEntity?> Get(Guid Id)
+        public virtual Task<TEntity?> Get(Guid Id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Guid> Create(TEntity entity)
+        public virtual Task<Guid> Create(TEntity entity)
         {
             throw new NotImplementedException();
         }
 
-        public Task Update(TEntity entity)
+        public virtual Task Update(TEntity entity)
         {
             throw new NotImplementedException();
         }
 
-        public Task Delete(Guid id)
+        public virtual Task Delete(Guid id)
         {
             throw new NotImplementedException();
         }
