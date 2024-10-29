@@ -7,9 +7,9 @@ namespace CoreDomain
 {
     public static class CoreDomainDependencyInjectionSetup
     {
-        public static void CoreDomainDISetup(IServiceCollection services)
+        public static void DepenedencySetup(IServiceCollection services)
         {
-            CoreUtilityDependencyInjectionSetup.CoreUtilityDISetup(services);
+            CoreUtilityDependencyInjectionSetup.DepenedencySetup(services);
 
             var myAssembly = Assembly.GetAssembly(typeof(TableCache));
             if (myAssembly == null)
