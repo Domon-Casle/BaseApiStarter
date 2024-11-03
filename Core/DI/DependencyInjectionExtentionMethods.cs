@@ -20,11 +20,11 @@ namespace CoreUtilities.DI
                             break;
 
                         case DIScope.Singleton:
-                            serviceCollection.AddTransient(diAttribute.InterfaceType, diClass);
+                            serviceCollection.AddSingleton(diAttribute.InterfaceType, diClass);
                             break;
 
                         case DIScope.Transiant:
-                            serviceCollection.AddSingleton(diAttribute.InterfaceType, diClass);
+                            serviceCollection.AddTransient(diAttribute.InterfaceType, diClass);
                             break;
 
                         default:
